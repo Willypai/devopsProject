@@ -1,19 +1,14 @@
-from todo import Todo
+from nba_api import NBAApi
 
-def build():
-    # 創建待辦事項
-    todo_item = Todo("Finish project", "Complete the project using GitHub")
+def main():
+    nba_api = NBAApi()
+    live_scores_data = nba_api.get_live_scores()
 
-    # 顯示待辦事項詳細信息
-    print("Original Todo:")
-    print(todo_item)
-
-    # 標記事項為已完成
-    todo_item.mark_as_completed()
-
-    # 顯示更新後的待辦事項信息
-    print("\nUpdated Todo:")
-    print(todo_item)
+    if live_scores_data:
+        games = live_scores_data['resultSets'][0]['rowSet']
+        print("NBA Live Scores:")
+        for game in games:
+            print(f"{game[5]} vs {game[6]} - {game[7]}")
 
 if __name__ == "__main__":
-    build()
+    main()

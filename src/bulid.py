@@ -1,8 +1,10 @@
 import requests
+from datetime import date
+
 
 url = "https://api-nba-v1.p.rapidapi.com/games"
 
-querystring = {"date":"2023-11-21"}
+querystring = {"date":str(date.today())}
 
 headers = {
 	"X-RapidAPI-Key": "27244be62dmshb2410b2c636a6a7p18e011jsn345988bae2b4",

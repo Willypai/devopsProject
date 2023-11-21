@@ -1,14 +1,14 @@
-from nba_api import NBAApi
+import requests
 
-def main():
-    nba_api = NBAApi()
-    live_scores_data = nba_api.get_live_scores()
+url = "https://api-nba-v1.p.rapidapi.com/games"
 
-    if live_scores_data:
-        games = live_scores_data['resultSets'][0]['rowSet']
-        print("NBA Live Scores:")
-        for game in games:
-            print(f"{game[5]} vs {game[6]} - {game[7]}")
+querystring = {"date":"2023-11-21"}
 
-if __name__ == "__main__":
-    main()
+headers = {
+	"X-RapidAPI-Key": "27244be62dmshb2410b2c636a6a7p18e011jsn345988bae2b4",
+	"X-RapidAPI-Host": "api-nba-v1.p.rapidapi.com"
+}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())

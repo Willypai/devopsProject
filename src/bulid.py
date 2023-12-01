@@ -28,13 +28,13 @@ detail_scores = []
 detail_officials = []
 
 for i in range(result_count):
-	detail_date = details[i]["date"]
-	detail_arena = details[i]["arena"]
+	# detail_date = details[i]["date"]
+	# detail_arena = details[i]["arena"]
 	detail_teams = details[i]["teams"]
 	detail_scores = details[i]["scores"]
-	detail_officials = details[i]["officials"]
+	# detail_officials = details[i]["officials"]
 	teams = pd.DataFrame(detail_teams)
-	team_final = teams.drop("id").drop("nickname").drop("logo")
+	team_final = teams.drop("id").drop("name").drop("logo")
 	# print(team_final)
 	scores = pd.DataFrame(detail_scores)
 	scores_final = scores.drop("win").drop("loss").drop("series")

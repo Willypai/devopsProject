@@ -146,7 +146,7 @@ const NBAComponent: React.FC = () => {
                       className="list-group-item"
                       style={{ whiteSpace: "nowrap" }}
                     >
-                      linescore: [{game.scores.home.linescore.join(", ")}]
+                      linescore: [{game.scores.visitors.linescore.join(", ")}]
                     </li>
                     <li className="list-group-item">
                       points: {game.scores.visitors.points}
